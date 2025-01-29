@@ -1,0 +1,181 @@
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h5,
+p {
+    margin: 0;
+    border: 0;
+}
+
+.poppins-thin {
+    font-family: "Poppins", serif;
+    font-weight: 100;
+    font-style: normal;
+}
+
+.poppins-extralight {
+    font-family: "Poppins", serif;
+    font-weight: 200;
+    font-style: normal;
+}
+
+.poppins-light {
+    font-family: "Poppins", serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.poppins-regular {
+    font-family: "Poppins", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.poppins-medium {
+    font-family: "Poppins", serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.poppins-semibold {
+    font-family: "Poppins", serif;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.poppins-bold {
+    font-family: "Poppins", serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.poppins-extrabold {
+    font-family: "Poppins", serif;
+    font-weight: 800;
+    font-style: normal;
+}
+
+.poppins-black {
+    font-family: "Poppins", serif;
+    font-weight: 900;
+    font-style: normal;
+}
+
+.poppins-thin-italic {
+    font-family: "Poppins", serif;
+    font-weight: 100;
+    font-style: italic;
+}
+
+.poppins-extralight-italic {
+    font-family: "Poppins", serif;
+    font-weight: 200;
+    font-style: italic;
+}
+
+.poppins-light-italic {
+    font-family: "Poppins", serif;
+    font-weight: 300;
+    font-style: italic;
+}
+
+.poppins-regular-italic {
+    font-family: "Poppins", serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.poppins-medium-italic {
+    font-family: "Poppins", serif;
+    font-weight: 500;
+    font-style: italic;
+}
+
+.poppins-semibold-italic {
+    font-family: "Poppins", serif;
+    font-weight: 600;
+    font-style: italic;
+}
+
+.poppins-bold-italic {
+    font-family: "Poppins", serif;
+    font-weight: 700;
+    font-style: italic;
+}
+
+.poppins-extrabold-italic {
+    font-family: "Poppins", serif;
+    font-weight: 800;
+    font-style: italic;
+}
+
+.poppins-black-italic {
+    font-family: "Poppins", serif;
+    font-weight: 900;
+    font-style: italic;
+}
+
+.game {
+    height: 825px;
+
+    .hedder {
+        height: 10%;
+
+        .title {
+            font-size: 2rem;
+        }
+
+        .reset {
+            height: 3rem;
+            width: 10rem;
+            border-radius: 0.5vw;
+        }
+    }
+
+    .container {
+        height: 85%;
+        width: 100%;
+
+        .leftCon {
+            .start {
+                height: 5vw;
+                width: 10vw;
+                border-radius: 8px;
+            }
+
+            .section {
+                border-radius: 10px;
+                transition:outline-style 0.15s;
+                perspective: 1000px;
+                .flipCardInner{
+                    width: 95%;
+                    height: 95%;
+                    position: relative;
+                    text-align: center;
+                    transition: transform 0.6s;
+                    transform-style: preserve-3d;
+                }
+            }
+            .section:hover .flipCardInner {
+                transform: rotateY(180deg);
+            }
+            .flipper-front, .flipper-back {
+                position: absolute;
+                -webkit-backface-visibility: hidden;
+                backface-visibility: hidden;
+              }
+              
+            .flipper-back {
+                transform: rotateY(180deg);
+            }
+            .section:hover {
+                outline-style: double;
+            }
+        }
+    }
+
+}
