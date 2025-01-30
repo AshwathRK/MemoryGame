@@ -19,18 +19,20 @@
 <body>
     <div class="game w-full">
         <header class="hedder flex items-center bg-black justify-between px-20">
-            <h1 class="title poppins-semibold text-white">Meory Game</h1>
+            <h1 class="title poppins-semibold text-white">Memory Game</h1>
             <button id="reset" class="reset bg-blue-200 hover: hover:outline-double" onclick=shuffleTheItems()>Reset</button>
         </header>
-        <div class="container bg-green-50">
+        <div class="container bg-green-50 flex">
             <div class="leftCon w-3/4 bg-blue-200 h-full grid grid-cols-4 grid-row-3 flex justify-center items-center gap-8 py-10 px-44"
                 id="leftCon">
                 <button id="btn-start" class="start bg-blue-500 hover: hover:outline-double hover:outline-pink-800 text-white"onclick=callfunction()>Start</button>
                 <div>
-
                 </div>
             </div>
-
+            <div class="rightCon flex flex-col justify-center items-center">
+                <H1 id="count">0</H1>
+                <h1>Count</h1>
+            </div>
         </div>
     </div>
 </body>

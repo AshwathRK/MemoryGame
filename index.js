@@ -1,3 +1,6 @@
+var pathOfTheImage = [];
+
+
 const data = [
     {
         "id": 1,
@@ -62,6 +65,7 @@ const data = [
 
 ]
 
+//Get the ID from the data
 function getIdFromJSON() {
     let value = [];
     for (let index = 0; index < data.length; index++) {
@@ -70,6 +74,7 @@ function getIdFromJSON() {
     return value;
 }
 
+// shuffle the array
 function shuffle(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -78,8 +83,7 @@ function shuffle(array) {
     return array;
 }
 
-var pathOfTheImage = [];
-
+//apply the image in the shuffled array
 function rendorImage(array) {
     for (let index = 0; index < array.length; index++) {
         pathOfTheImage.push(data[array[index] - 1].imagePath);
@@ -87,17 +91,17 @@ function rendorImage(array) {
     return pathOfTheImage;
 }
 
-function countOfSection() {
 
+function countOfSection() {
     var section = "";
     for (let index = 0; index <= 11; index++) {
-        section = section + `<div class="section flex justify-center items-center poppins-medium bg-indigo-300 hover:bg-blue-500 ease-in h-full"
-                    id="count${index + 1}" onclick="getDivId(event)>
+        section = section + `<div onclick="flipCard(${index}, this)" class="section flex justify-center items-center poppins-medium bg-indigo-300 hover:bg-blue-500 ease-in h-full"
+                    id="count${index + 1}">
                     <div class="flipCardInner">
                         <div id="flip-card-front-${index}" class="flipper-front">
                         </div>
                         <div id="flip-card-back-${index}" class="flipper-back">
-                            <img src="assets/${pathOfTheImage[index]}">
+                            <img id="image-${index}" src="assets/${pathOfTheImage[index]}">
                         </div>
                     </div>
                 </div>`
@@ -114,11 +118,64 @@ function shuffleTheItems() {
     location.reload();
 }
 
-function getDivId(event) {
-    console.log(event.target.id);
+let clickedImage = [];
+
+function flipCard(cardID, element) {
+    if (clickedImage.length === 2) return; // Prevent clicking more than two cards
+
+    let cardElement = document.getElementById("image-" + cardID);
+    let imageID = cardElement.id;
+    console.log(imageID);
+
+    for (let index = 0; index < data.length; index++) {
+        if (imageID === `image-${index}`) {
+            if (clickedImage.length === 0) {
+                element.classList.toggle("flipped");
+                clickedImage.push({ id: cardID, image: data[index].imageNo});
+                console.log(data[index].imageNo);
+            } 
+            else if (clickedImage.length === 1) {
+                element.classList.toggle("flipped");
+                clickedImage.push({ id: cardID, image: data[index].imageNo });
+
+                if (clickedImage[0].image === clickedImage[1].image) {
+                    console.log("Match!");
+                    clickedImage.length = 0; // Clear selection
+                } 
+                else {
+                    console.log("Different!");
+
+                    setTimeout(() => {
+                        document.getElementById("count" + clickedImage[0].id).classList.remove("flipped");
+                        document.getElementById("count" + clickedImage[1].id).classList.remove("flipped");
+                        clickedImage.length = 0; // Reset for next attempt
+                    }, 1000);
+                }
+            }
+        }
+    }
 }
 
 
+// if (clickedImage.length===0) {
+//     element.classList.toggle("flipped");
+//     clickedImage.push("bell-pepper")
+// }
+// else if(clickedImage.length===1){
+//     element.classList.toggle("flipped");
+//     clickedImage.push("bell-pepper")
+//     if(clickedImage[0]===clickedImage[1]){
+//         clickedImage=[];
+//     }
+//     else{
+//         console.log("Different");
+
+//         for (let index = 0; index <= clickedImage.length; index++) {
+//             clickedImage.pop()
+            
+//         }
+//     }
+// }
 
 // var vc = document.getElementsByClassName('section');
 // vc.addEventListener("click", rotateFunction);

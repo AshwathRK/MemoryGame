@@ -151,6 +151,7 @@ p {
                 border-radius: 10px;
                 transition:outline-style 0.15s;
                 perspective: 1000px;
+                cursor: pointer;
                 .flipCardInner{
                     width: 95%;
                     height: 95%;
@@ -159,9 +160,6 @@ p {
                     transition: transform 0.6s;
                     transform-style: preserve-3d;
                 }
-            }
-            .section:hover .flipCardInner {
-                transform: rotateY(180deg);
             }
             .flipper-front, .flipper-back {
                 position: absolute;
@@ -172,9 +170,15 @@ p {
             .flipper-back {
                 transform: rotateY(180deg);
             }
+            .flipped .flipCardInner {
+                transform: rotateY(180deg);
+            }
             .section:hover {
                 outline-style: double;
             }
+        }
+        .rightCon{
+            width: 20%;
         }
     }
 
