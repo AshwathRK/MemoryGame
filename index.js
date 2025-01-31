@@ -118,38 +118,70 @@ function shuffleTheItems() {
     location.reload();
 }
 
+var pointValue = 0;
+var clickCount = 0;
 let clickedImage = [];
 
 function flipCard(cardID, element) {
-    if (clickedImage.length === 2) return; // Prevent clicking more than two cards
+    if (clickedImage.length === 2) return;
 
     let cardElement = document.getElementById("image-" + cardID);
     let imageID = cardElement.id;
-    console.log(imageID);
+    let imagePath = cardElement.src;
+
+    let noClick = document.getElementById("noOfClicks");
+    clickCount = clickCount+1
+    noClick.innerText=clickCount;
+    
+    
+    console.log(imagePath);
+
+    console.log()
 
     for (let index = 0; index < data.length; index++) {
-        if (imageID === `image-${index}`) {
+        if (imagePath.split("assets/")[1] === data[index].imagePath) {
             if (clickedImage.length === 0) {
                 element.classList.toggle("flipped");
-                clickedImage.push({ id: cardID, image: data[index].imageNo});
+                clickedImage.push({ id: element.id, image: data[index].imagePath});
                 console.log(data[index].imageNo);
+                break
             } 
             else if (clickedImage.length === 1) {
                 element.classList.toggle("flipped");
-                clickedImage.push({ id: cardID, image: data[index].imageNo });
+                clickedImage.push({ id: element.id, image: data[index].imagePath});
+                
 
                 if (clickedImage[0].image === clickedImage[1].image) {
                     console.log("Match!");
-                    clickedImage.length = 0; // Clear selection
+                    let pointCount = document.getElementById("count");
+                    pointValue = pointValue+1
+                    pointCount.innerText=pointValue;
+
+                    clickedImage.length = 0;
+                    break
                 } 
                 else {
                     console.log("Different!");
 
+                    let firstCardID = clickedImage[0].id;
+                    let secondCardID = clickedImage[1].id;
+
+                    // Clear clickedImage before setTimeout runs
+                    
+                    
+
                     setTimeout(() => {
-                        document.getElementById("count" + clickedImage[0].id).classList.remove("flipped");
-                        document.getElementById("count" + clickedImage[1].id).classList.remove("flipped");
-                        clickedImage.length = 0; // Reset for next attempt
+                    let firstCard = document.getElementById(firstCardID);
+                    let secondCard = document.getElementById(secondCardID);
+
+                        if (firstCard && secondCard) {
+                        firstCard.classList.toggle("flipped");
+                        secondCard.classList.toggle("flipped");
+                        }
+                        clickedImage.length = 0;
                     }, 1000);
+                    break
+
                 }
             }
         }

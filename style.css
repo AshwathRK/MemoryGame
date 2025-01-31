@@ -142,9 +142,12 @@ p {
 
         .leftCon {
             .start {
-                height: 5vw;
+                height: 10vw;
                 width: 10vw;
-                border-radius: 8px;
+                border-radius: 50%;
+                img{
+                    height: 5vw;
+                }
             }
 
             .section {
@@ -179,6 +182,7 @@ p {
         }
         .rightCon{
             width: 20%;
+
         }
     }
 

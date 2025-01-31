@@ -13,6 +13,7 @@
 
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="assets/puzzle.png">
     <script src="index.js"></script>
 </head>
 
@@ -25,13 +26,21 @@
         <div class="container bg-green-50 flex">
             <div class="leftCon w-3/4 bg-blue-200 h-full grid grid-cols-4 grid-row-3 flex justify-center items-center gap-8 py-10 px-44"
                 id="leftCon">
-                <button id="btn-start" class="start bg-blue-500 hover: hover:outline-double hover:outline-pink-800 text-white"onclick=callfunction()>Start</button>
+                <button id="btn-start" class="start bg-blue-500 flex justify-center items-center hover: hover:outline-double hover:outline-pink-800 text-white"onclick=callfunction()>
+                    <img src="assets/play-button.png">
+                </button>
                 <div>
                 </div>
             </div>
-            <div class="rightCon flex flex-col justify-center items-center">
-                <H1 id="count">0</H1>
-                <h1>Count</h1>
+            <div class="rightCon flex flex-col px-10 py-10">
+                <div class="points flex">
+                    <h1 class="poppins-bold">Points:</h1>
+                    <H1 id="count" class="poppins-bold px-1">0</H1>
+                </div>
+                <div class="points flex">
+                    <h1 class="poppins-bold">Number of clicks:</h1>
+                    <H1 id="noOfClicks" class="poppins-bold px-1">0</H1>
+                </div>
             </div>
         </div>
     </div>
