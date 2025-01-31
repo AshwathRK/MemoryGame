@@ -18,21 +18,21 @@
 </head>
 
 <body>
-    <div class="game w-full">
-        <header class="hedder flex items-center bg-black justify-between px-20">
+    <div class="game">
+        <header class="hedder flex items-center bg-black justify-between">
             <h1 class="title poppins-semibold text-white">Memory Game</h1>
-            <button id="reset" class="reset bg-blue-200 hover: hover:outline-double" onclick=shuffleTheItems()>Reset</button>
+            <button id="reset" class="reset btn-grad hover: hover:outline-double" onclick=shuffleTheItems()>Reset</button>
         </header>
-        <div class="container bg-green-50 flex">
-            <div class="leftCon w-3/4 bg-blue-200 h-full grid grid-cols-4 grid-row-3 flex justify-center items-center gap-8 py-10 px-44"
+        <div class="container bg-green-50 flex flex-col">
+            <div class="leftCon grad h-full grid grid-cols-4 grid-row-3 flex justify-center items-center gap-8"
                 id="leftCon">
                 <button id="btn-start" class="start bg-blue-500 flex justify-center items-center hover: hover:outline-double hover:outline-pink-800 text-white"onclick=callfunction()>
-                    <img src="assets/play-button.png">
+                    <img class="icons" src="assets/play-button.png">
                 </button>
                 <div>
                 </div>
             </div>
-            <div class="rightCon flex flex-col px-10 py-10">
+            <div class="rightCon flex justify-around">
                 <div class="points flex">
                     <h1 class="poppins-bold">Points:</h1>
                     <H1 id="count" class="poppins-bold px-1">0</H1>

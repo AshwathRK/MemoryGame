@@ -132,18 +132,13 @@ function flipCard(cardID, element) {
     let noClick = document.getElementById("noOfClicks");
     clickCount = clickCount+1
     noClick.innerText=clickCount;
-    
-    
-    console.log(imagePath);
 
-    console.log()
 
     for (let index = 0; index < data.length; index++) {
         if (imagePath.split("assets/")[1] === data[index].imagePath) {
             if (clickedImage.length === 0) {
                 element.classList.toggle("flipped");
                 clickedImage.push({ id: element.id, image: data[index].imagePath});
-                console.log(data[index].imageNo);
                 break
             } 
             else if (clickedImage.length === 1) {
@@ -152,16 +147,22 @@ function flipCard(cardID, element) {
                 
 
                 if (clickedImage[0].image === clickedImage[1].image) {
-                    console.log("Match!");
                     let pointCount = document.getElementById("count");
                     pointValue = pointValue+1
                     pointCount.innerText=pointValue;
+
+                    
+                    if (pointValue===6) {
+                        setTimeout(()=>{
+                            console.log(refreshPage);
+                            let refreshPage = window.confirm("You rock! play again?")
+                        },500);
+                    }
 
                     clickedImage.length = 0;
                     break
                 } 
                 else {
-                    console.log("Different!");
 
                     let firstCardID = clickedImage[0].id;
                     let secondCardID = clickedImage[1].id;
