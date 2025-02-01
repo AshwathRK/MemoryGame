@@ -1,0 +1,33 @@
+Memory Game
+============
+
+Description
+------------
+
+Memory Game is a fun and interactive game designed to test and improve memory skills. 
+Players need to match pairs of cards by remembering their positions. The game is suitable for all ages 
+and can be played solo or with friends
+
+How to Play
+-------------
+
+1. Start the game by clicking on a card.
+2. Remember the card and try to find its matching pair.
+3. If the two selected cards match, they remain visible.
+4. If they do not match, they flip back over after a short delay.
+5. Continue matching pairs until all cards are revealed.
+6. Try to complete the game in the shortest time with the fewest moves.
+
+Technologies Used
+------------------
+
+1. HTML
+2. CSS
+3. JavaScript
+
+
+links
+------
+
+Repo link - https://github.com/AshwathRK/MemoryGame/tree/master
+page link - https://ashwathrk.github.io/MemoryGame/
